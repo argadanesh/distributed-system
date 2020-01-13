@@ -1,0 +1,35 @@
+
+
+-----------------------------------------File Configuration-----------------------------------------------
+For TCP Server we use port 8000 this can be changed inside file TCPServer.
+To be able transfer data between Car and Sensor the IP Address configuration should be correct and this can be changed inside file Sensor.java
+To be able transfering data using MQTT the topic should be same and this can be check in file CliParamater on MQTT.Subscriber and MQTT.Publisher
+The IP Address insurance server should be correct so the client can access the function from thrift this can be checked inside file Insurance.java
+
+------------------------------------------How to Install maven--------------------------------------------
+run this command for debian
+
+sudo apt-get install maven
+or 
+apt-get install maven
+
+to verify if maven installed correctly
+mvn -version
+------------------------------------------How To Build----------------------------------------------------
+To build this project Maven should be installed first
+
+1. Build project with maven 
+   run this command inside folder with pom.xml data
+   -> mvn clean package
+2. Create dependency folder inside target folder
+   -> mvn dependency:copy-dependencies
+3. How to run the program
+   -> java -cp "dependency/*":"VS_2018_MVN_1.0-SNAPSHOT.jar" Car.CarProgram
+   -> java -cp "dependency/*":"VS_2018_MVN_1.0-SNAPSHOT.jar" Sensor.DistanceSensor
+   -> java -cp "dependency/*":"VS_2018_MVN_1.0-SNAPSHOT.jar" Sensor.TankSensor
+   -> java -cp "dependency/*":"VS_2018_MVN_1.0-SNAPSHOT.jar" Sensor.VelocitySensor
+   -> java -cp "dependency/*":"VS_2018_MVN_1.0-SNAPSHOT.jar" Sensor.TrafficSensor
+   -> java -cp "dependency/*":"VS_2018_MVN_1.0-SNAPSHOT.jar" mqtt.subscriber.mqtt.Manufacturer
+   -> java -cp "dependency/*":"VS_2018_MVN_1.0-SNAPSHOT.jar" mqtt.subscriber.mqtt.ManufacturerBackup
+   -> java -cp "dependency/*":"VS_2018_MVN_1.0-SNAPSHOT.jar" thrift.Insurance
+___________________________________________________________________________________________________________
